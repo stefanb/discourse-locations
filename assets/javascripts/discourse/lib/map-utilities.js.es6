@@ -34,6 +34,13 @@ const generateMap = function(opts) {
 
   L.tileLayer(settings.location_map_tile_layer, tileOpts).addTo(map);
 
+  // Hardcoded way to add OpenSeaMap tile overlay:
+  L.tileLayer('https://tiles.openseamap.org/seamark/{z}/{x}/{y}.png',
+    {
+      attribution: 'Map data: &copy; <a href="https://www.openseamap.org">OpenSeaMap</a> contributors'
+    })
+    .addTo(map);
+
   L.Icon.Default.imagePath = '/plugins/discourse-locations/leaflet/images/';
 
   L.control.zoom({ position: 'bottomleft' }).addTo(map);
